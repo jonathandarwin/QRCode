@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DIMEN -->
+    <dimen name="common_4dp">4dp</dimen>
+    <dimen name="common_8dp">8dp</dimen>
+    <dimen name="common_10dp">10dp</dimen>
+    <dimen name="common_12dp">12dp</dimen>
+    <dimen name="common_16dp">16dp</dimen>
+    <dimen name="common_20dp">20dp</dimen>
+    <dimen name="common_24dp">24dp</dimen>
+    <dimen name="common_28dp">28dp</dimen>
+    <dimen name="common_30dp">30dp</dimen>
+    <dimen name="common_32dp">32dp</dimen>
+    <dimen name="common_36dp">36dp</dimen>
+    <dimen name="common_40dp">40dp</dimen>
+    <dimen name="common_48dp">48dp</dimen>
+    <dimen name="common_50dp">50dp</dimen>
+    <dimen name="common_100dp">100dp</dimen>
+    <dimen name="common_200dp">200dp</dimen>
+
+    <!-- TEXT SIZE -->
+    <dimen name="text_title">35sp</dimen>
+    <dimen name="text_18sp">18sp</dimen>
+    <dimen name="text_20sp">20sp</dimen>
+    <dimen name="text_25sp">25sp</dimen>
+    <dimen name="text_30sp">30sp</dimen>
+</resources>

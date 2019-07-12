@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">QRCode</string>
+    <string name="text_error">Error. Please try again</string>
+    <string name="text_success">Success</string>
+
+    <!-- REGISTER -->
+    <string name="text_register">Don\'t have account? Sign up</string>
+    <string name="text_error_register_input_all">Please input all the field</string>
+    <string name="text_error_register_exists">Username already exists</string>
+</resources>
