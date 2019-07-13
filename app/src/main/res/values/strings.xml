@@ -7,4 +7,7 @@
     <string name="text_register">Don\'t have account? Sign up</string>
     <string name="text_error_register_input_all">Please input all the field</string>
     <string name="text_error_register_exists">Username already exists</string>
+
+    <!-- LOGIN -->
+
 </resources>

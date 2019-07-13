@@ -13,12 +13,14 @@ import rx.Observable;
 import rx.subjects.PublishSubject;
 
 
-public class UserRepository {
+public class UserRepository implements ValueEventListener{
 
     DatabaseReference reference;
+    final PublishSubject<DataSnapshot> result;
 
     public UserRepository(){
         reference = FirebaseDatabase.getInstance().getReference();
+        result = PublishSubject.create();
     }
 
     public boolean insertUser(User user){
@@ -35,17 +37,7 @@ public class UserRepository {
     public Observable<DataSnapshot> getUserByEmail(String email){
         final PublishSubject<DataSnapshot> result = PublishSubject.create();
         try{
-            reference.child("user").orderByChild("email").equalTo(email).addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    result.onNext(dataSnapshot);
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                    result.onNext(null);
-                }
-            });
+            reference.child("user").orderByChild("email").equalTo(email).addListenerForSingleValueEvent(this);
         }
         catch (Exception e){
             e.printStackTrace();
@@ -53,4 +45,23 @@ public class UserRepository {
         return result;
     }
 
+    public Observable<DataSnapshot> doLogin(User user){
+        try{
+            reference.child("user").orderByChild("email").equalTo(user.getEmail()).addListenerForSingleValueEvent(this);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @Override
+    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+        result.onNext(dataSnapshot);
+    }
+
+    @Override
+    public void onCancelled(@NonNull DatabaseError databaseError) {
+        result.onNext(null);
+    }
 }

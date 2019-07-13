@@ -15,6 +15,8 @@ import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
+import com.example.qrcode.common.Auth;
+import com.example.qrcode.model.User;
 import com.google.firebase.FirebaseApp;
 
 public class BaseActivity<DataBinding extends ViewDataBinding, VM extends ViewModel> extends AppCompatActivity {
@@ -22,6 +24,7 @@ public class BaseActivity<DataBinding extends ViewDataBinding, VM extends ViewMo
     DataBinding binding;
     Class<VM> vm;
     int layout;
+    Auth auth;
 
     public BaseActivity(){
 
@@ -39,6 +42,7 @@ public class BaseActivity<DataBinding extends ViewDataBinding, VM extends ViewMo
         FirebaseApp.initializeApp(this);
         viewModel = ViewModelProviders.of(this).get(vm);
         binding = DataBindingUtil.setContentView(this, layout);
+        auth = new Auth(this);
         setListener();
         setAdapter();
     }
@@ -87,5 +91,17 @@ public class BaseActivity<DataBinding extends ViewDataBinding, VM extends ViewMo
 
     protected void showToast(String message){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    protected void saveUserData(User user){
+        auth.saveUserData(user);
+    }
+
+    protected User loadUserData(){
+        return auth.loadUserData();
+    }
+
+    protected boolean isLoggedIn(){
+        return auth.isLoggedIn();
     }
 }
