@@ -3,11 +3,11 @@
     <string name="text_error">Error. Please try again</string>
     <string name="text_success">Success</string>
 
+    <!-- STARTED -->
+    <string name="text_slider_1">Welcome to\n\nQRCode</string>
+    <string name="text_slider_2">Making your transfer easier</string>
+    <string name="text_slider_3">Let\'s Get Started!</string>
+
     <!-- REGISTER -->
-    <string name="text_register">Don\'t have account? Sign up</string>
-    <string name="text_error_register_input_all">Please input all the field</string>
-    <string name="text_error_register_exists">Username already exists</string>
-
-    <!-- LOGIN -->
-
+    <string name="text_register_base_phone_number">+62</string>
 </resources>

@@ -8,4 +8,24 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Divider">
+        <item name="android:background">@color/colorBorder</item>
+    </style>
+
+    <style name="HorizontalDivider" parent="Divider">
+        <item name="android:layout_width">1px</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="VerticalDivider" parent="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+    </style>
+
+    <style name="ProgressLine">
+        <item name="android:background">#D8D8D8</item>
+        <item name="android:layout_width">@dimen/common_50dp</item>
+        <item name="android:layout_height">@dimen/common_4dp</item>
+    </style>
+
 </resources>
