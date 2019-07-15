@@ -6,41 +6,17 @@ import android.databinding.Bindable;
 import com.example.qrcode.BR;
 
 public class User extends BaseObservable {
-    protected String email;
-    protected String password;
-    protected String name;
+    protected String phone;
     protected String balance;
 
     @Bindable
-    public String getEmail() {
-        return email;
+    public String getPhone() {
+        return phone;
     }
 
-    public User setEmail(String email) {
-        this.email = email;
-        notifyPropertyChanged(BR.email);
-        return this;
-    }
-
-    @Bindable
-    public String getPassword() {
-        return password;
-    }
-
-    public User setPassword(String password) {
-        this.password = password;
-        notifyPropertyChanged(BR.password);
-        return this;
-    }
-
-    @Bindable
-    public String getName() {
-        return name;
-    }
-
-    public User setName(String name) {
-        this.name = name;
-        notifyPropertyChanged(BR.name);
+    public User setPhone(String phone) {
+        this.phone = phone;
+        notifyPropertyChanged(BR.phone);
         return this;
     }
 

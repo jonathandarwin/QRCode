@@ -1,12 +1,13 @@
 package com.example.qrcode.app.register;
 
+import android.arch.lifecycle.Observer;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.text.Layout;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
-
 import com.example.qrcode.R;
 import com.example.qrcode.base.BaseActivity;
 import com.example.qrcode.databinding.RegisterActivityBinding;
@@ -32,9 +33,10 @@ public class RegisterActivity extends BaseActivity<RegisterActivityBinding, Regi
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setInitProgress();
         setInflaterLayout();
         setListenerInflaterLayout();
+        setInitProgress();
+        setValidatePhone();
         getBinding().llContent.addView(bindingPhoneNumber.getRoot());
     }
 
@@ -48,9 +50,8 @@ public class RegisterActivity extends BaseActivity<RegisterActivityBinding, Regi
     @Override
     public void onClick(View v) {
         if(v.equals(bindingPhoneNumber.btnNext)){
-            updateProgress();
-            getBinding().llContent.removeAllViews();
-            getBinding().llContent.addView(bindingPin.getRoot());
+            String phone = getResources().getString(R.string.text_register_base_phone_number).concat(bindingPhoneNumber.getPhone().trim());
+            getViewModel().validatePhone(phone).observe(this, this::handleValidatePhone);
         }
         else if(v.equals(bindingPin.btnNext)){
             updateProgress();
@@ -73,6 +74,7 @@ public class RegisterActivity extends BaseActivity<RegisterActivityBinding, Regi
 
     private void setInitProgress(){
         progress = 1;
+        bindingPhoneNumber.setPhone("");
 
         getBinding().setDot1(getResources().getDrawable(R.drawable.slider_dot_done));
         getBinding().setDot2(getResources().getDrawable(R.drawable.slider_dot));
@@ -82,6 +84,33 @@ public class RegisterActivity extends BaseActivity<RegisterActivityBinding, Regi
         getBinding().setLine1(getResources().getColor(R.color.colorProgresLine));
         getBinding().setLine2(getResources().getColor(R.color.colorProgresLine));
         getBinding().setLine3(getResources().getColor(R.color.colorProgresLine));
+    }
+
+    private void setValidatePhone(){
+        bindingPhoneNumber.txtPhone.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                boolean isChange = false;
+                String phone = s.toString();
+                if(phone.startsWith("0")){
+                    isChange = true;
+                    phone = phone.substring(1);
+                }
+                if(isChange){
+                    bindingPhoneNumber.txtPhone.setText(phone);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     private void updateProgress(){
@@ -104,5 +133,21 @@ public class RegisterActivity extends BaseActivity<RegisterActivityBinding, Regi
 
     private int getColorDone(){
         return getResources().getColor(R.color.colorBackground);
+    }
+
+    private void handleValidatePhone(Integer status){
+        switch (status){
+            case RegisterViewModel.PHONE_VALID:
+                updateProgress();
+                getBinding().llContent.removeAllViews();
+                getBinding().llContent.addView(bindingPin.getRoot());
+                break;
+            case RegisterViewModel.PHONE_INVALID:
+                showToast(getResources().getString(R.string.text_register_phone_invalid));
+                break;
+            case RegisterViewModel.ERROR:
+                showToast(getResources().getString(R.string.text_error));
+                break;
+        }
     }
 }

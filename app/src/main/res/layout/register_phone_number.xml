@@ -2,49 +2,47 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
+        <variable
+            name="phone"
+            type="String"/>
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/common_30dp"
-            android:orientation="horizontal"
             android:gravity="center"
-            >
+            android:orientation="horizontal"
+            android:padding="@dimen/common_30dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/border_edittext"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/text_register_base_phone_number"
-                    android:textSize="@dimen/text_18sp"
                     android:padding="@dimen/common_20dp"
-                    />
+                    android:text="@string/text_register_base_phone_number"
+                    android:textSize="@dimen/text_18sp" />
 
-                <View
-                    style="@style/HorizontalDivider"/>
+                <View style="@style/HorizontalDivider" />
 
                 <EditText
                     android:id="@+id/txtPhone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:padding="@dimen/common_20dp"
                     android:background="@null"
+                    android:ems="10"
+                    android:maxLength="20"
+                    android:text="@={phone}"
                     android:inputType="number"
-                    />
+                    android:padding="@dimen/common_20dp" />
 
             </LinearLayout>
 
@@ -54,9 +52,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:padding="@dimen/common_20dp"
             android:background="@color/colorWhite"
-            >
+            android:padding="@dimen/common_20dp">
 
             <Button
                 android:id="@+id/btnNext"
@@ -64,8 +61,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorBackground"
                 android:text="Next"
-                android:textColor="@color/colorWhite"
-                />
+                android:textColor="@color/colorWhite" />
         </LinearLayout>
 
     </RelativeLayout>

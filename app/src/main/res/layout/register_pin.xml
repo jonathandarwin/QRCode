@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -18,35 +19,25 @@
             android:gravity="center"
             >
 
+            <!-- PIN -->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border_edittext"
-                android:orientation="horizontal"
+                android:gravity="center"
                 >
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <com.mukesh.OtpView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/text_register_base_phone_number"
-                    android:textSize="@dimen/text_18sp"
-                    android:padding="@dimen/common_20dp"
-                    />
-
-                <View
-                    style="@style/HorizontalDivider"/>
-
-                <EditText
-                    android:id="@+id/txtPhone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:padding="@dimen/common_20dp"
-                    android:background="@null"
-                    android:inputType="number"
+                    app:itemCount="6"
+                    android:itemBackground="@color/colorBrightBrown"
+                    app:lineColor="@color/colorBrown"
+                    app:itemSpacing="@dimen/common_12dp"
+                    app:viewType="rectangle"
                     />
 
             </LinearLayout>
+
 
         </LinearLayout>
 

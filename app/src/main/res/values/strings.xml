@@ -10,4 +10,5 @@
 
     <!-- REGISTER -->
     <string name="text_register_base_phone_number">+62</string>
+    <string name="text_register_phone_invalid">Please input valid phone number</string>
 </resources>

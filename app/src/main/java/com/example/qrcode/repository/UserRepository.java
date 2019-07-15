@@ -1,6 +1,7 @@
 package com.example.qrcode.repository;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.example.qrcode.model.User;
 import com.google.firebase.database.DataSnapshot;
@@ -23,33 +24,12 @@ public class UserRepository implements ValueEventListener{
         result = PublishSubject.create();
     }
 
-    public boolean insertUser(User user){
+    public Observable<DataSnapshot> getPhoneNumber(String phone){
         try{
-            reference.child("user").push().setValue(user);
-            return true;
+            reference.child("user").orderByChild("phone").equalTo(phone).addListenerForSingleValueEvent(this);
         }
         catch (Exception e){
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    public Observable<DataSnapshot> getUserByEmail(String email){
-        final PublishSubject<DataSnapshot> result = PublishSubject.create();
-        try{
-            reference.child("user").orderByChild("email").equalTo(email).addListenerForSingleValueEvent(this);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-        return result;
-    }
-
-    public Observable<DataSnapshot> doLogin(User user){
-        try{
-            reference.child("user").orderByChild("email").equalTo(user.getEmail()).addListenerForSingleValueEvent(this);
-        }
-        catch (Exception e){
+            result.onNext(null);
             e.printStackTrace();
         }
         return result;
