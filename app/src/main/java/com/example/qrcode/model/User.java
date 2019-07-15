@@ -8,6 +8,7 @@ import com.example.qrcode.BR;
 public class User extends BaseObservable {
     protected String phone;
     protected String balance;
+    protected String pin;
 
     @Bindable
     public String getPhone() {
@@ -28,6 +29,17 @@ public class User extends BaseObservable {
     public User setBalance(String balance) {
         this.balance = balance;
         notifyPropertyChanged(BR.balance);
+        return this;
+    }
+
+    @Bindable
+    public String getPin() {
+        return pin;
+    }
+
+    public User setPin(String pin) {
+        this.pin = pin;
+        notifyPropertyChanged(BR.pin);
         return this;
     }
 }

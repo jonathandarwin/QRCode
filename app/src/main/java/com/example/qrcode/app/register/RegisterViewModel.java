@@ -3,14 +3,9 @@ package com.example.qrcode.app.register;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
-import android.content.Context;
 
 import com.example.qrcode.R;
-import com.example.qrcode.model.User;
 import com.example.qrcode.repository.UserRepository;
-import com.google.firebase.database.DataSnapshot;
-
-import rx.schedulers.Schedulers;
 
 public class RegisterViewModel extends ViewModel {
 
@@ -28,12 +23,8 @@ public class RegisterViewModel extends ViewModel {
     public LiveData<Integer> validatePhone(String phone){
         MutableLiveData<Integer> result = new MutableLiveData<>();
         if(phone != null && !phone.trim().equals("+62")){
-//            setPhone(phone);
-//            result.setValue(PHONE_VALID);
             try{
                 userRepository.getPhoneNumber(phone)
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(Schedulers.computation())
                         .subscribe(dataSnapshot -> {
                             if(dataSnapshot != null){
                                 setPhone(phone);
@@ -55,6 +46,24 @@ public class RegisterViewModel extends ViewModel {
             result.setValue(PHONE_INVALID);
         }
         return result;
+    }
+
+    public String processPin(String pin, String input, String delete){
+        if(input.equals(delete) && pin.length() != 0){
+            pin = pin.substring(0, pin.length()-1);
+        }
+        else if(!input.equals(delete) && pin.length() < 6){
+            pin += input;
+        }
+        return pin;
+    }
+
+    public boolean validatePin(String pin){
+        return pin.length() == 6 ? true : false;
+    }
+
+    public boolean validatePinConfirmation(String pin, String pinConfirmation){
+        return pin.equals(pinConfirmation) ? true : false;
     }
 
     private void setPhone(String phone){

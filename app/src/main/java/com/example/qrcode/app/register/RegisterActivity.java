@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+
 import com.example.qrcode.R;
 import com.example.qrcode.base.BaseActivity;
 import com.example.qrcode.databinding.RegisterActivityBinding;
@@ -15,6 +18,8 @@ import com.example.qrcode.databinding.RegisterDoneBinding;
 import com.example.qrcode.databinding.RegisterPhoneNumberBinding;
 import com.example.qrcode.databinding.RegisterPinBinding;
 import com.example.qrcode.databinding.RegisterPinConfirmationBinding;
+import com.example.qrcode.model.User;
+import com.google.android.gms.common.internal.ResourceUtils;
 
 public class RegisterActivity extends BaseActivity<RegisterActivityBinding, RegisterViewModel>
             implements View.OnClickListener{
@@ -54,15 +59,33 @@ public class RegisterActivity extends BaseActivity<RegisterActivityBinding, Regi
             getViewModel().validatePhone(phone).observe(this, this::handleValidatePhone);
         }
         else if(v.equals(bindingPin.btnNext)){
-            updateProgress();
-            getBinding().llContent.removeAllViews();
-            getBinding().llContent.addView(bindingPinConfirmation.getRoot());
+            if(getViewModel().validatePin(bindingPin.getPin())){
+                updateProgress();
+                getBinding().llContent.removeAllViews();
+                getBinding().llContent.addView(bindingPinConfirmation.getRoot());
+            }
+            else{
+                showToast(getResources().getString(R.string.text_register_pin_invalid));
+            }
         }
         else if(v.equals(bindingPinConfirmation.btnNext)){
-            updateProgress();
-            getBinding().llContent.removeAllViews();
-            getBinding().llContent.addView(bindingDone.getRoot());
+            if(getViewModel().validatePinConfirmation(bindingPin.getPin(), bindingPinConfirmation.getPinConfirmation())){
+                updateProgress();
+                getBinding().llContent.removeAllViews();
+                getBinding().llContent.addView(bindingDone.getRoot());
+            }
+            else{
+                showToast(getResources().getString(R.string.text_register_pin_confirmation_invalid));
+            }
         }
+    }
+
+    public void onButtonPinClick(View v){
+        bindingPin.setPin(getViewModel().processPin(bindingPin.getPin(), ((Button) v).getText().toString(), getResources().getString(R.string.btn_delete)));
+    }
+
+    public void onButtonPinConfirmationClick(View v){
+        bindingPinConfirmation.setPinConfirmation(getViewModel().processPin(bindingPinConfirmation.getPinConfirmation(), ((Button) v).getText().toString(), getResources().getString(R.string.btn_delete)));
     }
 
     private void setInflaterLayout(){
@@ -75,6 +98,8 @@ public class RegisterActivity extends BaseActivity<RegisterActivityBinding, Regi
     private void setInitProgress(){
         progress = 1;
         bindingPhoneNumber.setPhone("");
+        bindingPin.setPin("");
+        bindingPinConfirmation.setPinConfirmation("");
 
         getBinding().setDot1(getResources().getDrawable(R.drawable.slider_dot_done));
         getBinding().setDot2(getResources().getDrawable(R.drawable.slider_dot));

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="pinConfirmation"
+            type="String"/>
     </data>
 
     <RelativeLayout
@@ -12,45 +15,224 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:padding="@dimen/common_30dp"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:gravity="center"
+            android:layout_above="@+id/ll_next"
             >
 
+            <!-- PIN -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border_edittext"
-                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/common_50dp"
                 >
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_register_base_phone_number"
-                    android:textSize="@dimen/text_18sp"
-                    android:padding="@dimen/common_20dp"
+                <com.mukesh.OtpView
+                    android:id="@+id/txtOtp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:itemCount="6"
+                    android:itemBackground="@color/colorBrightBrown"
+                    app:lineColor="@color/colorBrown"
+                    app:itemSpacing="@dimen/common_12dp"
+                    android:text="@{pinConfirmation}"
+                    app:viewType="rectangle"
+                    app:itemWidth="@dimen/common_40dp"
+                    android:height="@dimen/common_40dp"
                     />
 
-                <View
-                    style="@style/HorizontalDivider"/>
+            </LinearLayout>
 
-                <EditText
-                    android:id="@+id/txtPhone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:padding="@dimen/common_20dp"
-                    android:background="@null"
-                    android:inputType="number"
-                    />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="@dimen/common_20dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+
+                    <Button
+                        android:id="@+id/btn1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorBackground"
+                        android:textSize="@dimen/text_18sp"
+                        android:text="1"
+                        android:layout_weight="1"
+                        android:onClick="onButtonPinConfirmationClick"
+                        />
+
+                    <Button
+                        android:id="@+id/btn2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorBackground"
+                        android:textSize="@dimen/text_18sp"
+                        android:text="2"
+                        android:layout_weight="1"
+                        android:onClick="onButtonPinConfirmationClick"
+                        />
+
+                    <Button
+                        android:id="@+id/btn3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorBackground"
+                        android:textSize="@dimen/text_18sp"
+                        android:text="3"
+                        android:layout_weight="1"
+                        android:onClick="onButtonPinConfirmationClick"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+
+                    <Button
+                        android:id="@+id/btn4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorBackground"
+                        android:textSize="@dimen/text_18sp"
+                        android:text="4"
+                        android:layout_weight="1"
+                        android:onClick="onButtonPinConfirmationClick"
+                        />
+
+                    <Button
+                        android:id="@+id/btn5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorBackground"
+                        android:textSize="@dimen/text_18sp"
+                        android:text="5"
+                        android:layout_weight="1"
+                        android:onClick="onButtonPinConfirmationClick"
+                        />
+
+                    <Button
+                        android:id="@+id/btn6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorBackground"
+                        android:textSize="@dimen/text_18sp"
+                        android:text="6"
+                        android:layout_weight="1"
+                        android:onClick="onButtonPinConfirmationClick"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+
+                    <Button
+                        android:id="@+id/btn7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorBackground"
+                        android:textSize="@dimen/text_18sp"
+                        android:text="7"
+                        android:layout_weight="1"
+                        android:onClick="onButtonPinConfirmationClick"
+                        />
+
+                    <Button
+                        android:id="@+id/btn8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorBackground"
+                        android:textSize="@dimen/text_18sp"
+                        android:text="8"
+                        android:layout_weight="1"
+                        android:onClick="onButtonPinConfirmationClick"
+                        />
+
+                    <Button
+                        android:id="@+id/btn9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorBackground"
+                        android:textSize="@dimen/text_18sp"
+                        android:text="9"
+                        android:layout_weight="1"
+                        android:onClick="onButtonPinConfirmationClick"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorBackground"
+                        android:textSize="@dimen/text_18sp"
+                        android:layout_weight="1"
+                        />
+
+                    <Button
+                        android:id="@+id/btn0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorBackground"
+                        android:textSize="@dimen/text_18sp"
+                        android:text="0"
+                        android:layout_weight="1"
+                        android:onClick="onButtonPinConfirmationClick"
+                        />
+
+                    <Button
+                        android:id="@+id/btnDelete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorBackground"
+                        android:textSize="@dimen/text_18sp"
+                        android:text="@string/btn_delete"
+                        android:layout_weight="1"
+                        android:onClick="onButtonPinConfirmationClick"
+                        />
+
+                </LinearLayout>
 
             </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -69,4 +251,5 @@
         </LinearLayout>
 
     </RelativeLayout>
+
 </layout>

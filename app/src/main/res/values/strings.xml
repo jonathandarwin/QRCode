@@ -11,4 +11,7 @@
     <!-- REGISTER -->
     <string name="text_register_base_phone_number">+62</string>
     <string name="text_register_phone_invalid">Please input valid phone number</string>
+    <string name="text_register_pin_invalid">Please input your pin</string>
+    <string name="text_register_pin_confirmation_invalid">Your confirmation pin is not match</string>
+    <string name="btn_delete">Delete</string>
 </resources>
