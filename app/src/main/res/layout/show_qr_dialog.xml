@@ -1,19 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="phone"
+            type="String"/>
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        >
 
-      <ImageView
-          android:id="@+id/qrcode"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          />
+        <LinearLayout
+            android:id="@+id/ll_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="@dimen/common_20dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_title_show_qrcode"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_20sp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_qrcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_header"
+            android:layout_centerHorizontal="true"
+            >
+
+            <ImageView
+                android:id="@+id/qrcode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:src="@drawable/ic_scan"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_qrcode"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="@dimen/common_20dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_phone_show_qrcode"
+                android:textColor="@color/colorBrown"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{phone}"
+                tools:text="+6287897892374"
+                android:layout_margin="@dimen/common_20dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_18sp"
+                />
+
+        </LinearLayout>
 
     </RelativeLayout>
 
