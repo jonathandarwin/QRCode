@@ -55,6 +55,9 @@ dependencies {
     // otp
     implementation 'com.github.mukeshsolanki:android-otpview-pinview:2.0.3'
 
+    // qr code
+    implementation 'com.github.kenglxn.QRGen:android:2.2.0'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

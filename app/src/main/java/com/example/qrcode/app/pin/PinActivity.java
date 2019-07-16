@@ -29,13 +29,13 @@ public class PinActivity extends BaseActivity<PinActivityBinding, PinViewModel> 
         if(input.equals(getResources().getString(R.string.btn_delete)) && getBinding().getPin().length() != 0){
             pin = pin.substring(0, pin.length()-1);
         }
-        else {
+        else if(!input.equals(getResources().getString(R.string.btn_delete))){
             pin += input;
         }
 
         if(pin.length() == 6){
             if(getViewModel().checkPin(pin, loadUserData().getPin())){
-                gotoIntent(HomeActivity.class, null, false);
+                gotoIntent(HomeActivity.class, null, true);
             }
             else{
                 Toast.makeText(this, getResources().getString(R.string.text_incorrect_pin), Toast.LENGTH_SHORT).show();
