@@ -3,9 +3,9 @@ package com.example.qrcode.app.register;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
-
-import com.example.qrcode.R;
+import com.example.qrcode.model.User;
 import com.example.qrcode.repository.UserRepository;
+import com.google.firebase.database.DataSnapshot;
 
 public class RegisterViewModel extends ViewModel {
 
@@ -14,7 +14,7 @@ public class RegisterViewModel extends ViewModel {
     public static final int PHONE_INVALID = 3;
 
     private UserRepository userRepository;
-    String phone;
+    User user = new User();
 
     public RegisterViewModel(){
         userRepository = new UserRepository();
@@ -27,8 +27,12 @@ public class RegisterViewModel extends ViewModel {
                 userRepository.getPhoneNumber(phone)
                         .subscribe(dataSnapshot -> {
                             if(dataSnapshot != null){
-                                setPhone(phone);
+                                for(DataSnapshot data : dataSnapshot.getChildren()){
+                                    user.setBalance(data.getValue(User.class).getBalance());
+                                }
+                                user.setPhone(phone);
                                 result.setValue(PHONE_VALID);
+
                             }
                             else{
                                 result.setValue(ERROR);
@@ -66,7 +70,11 @@ public class RegisterViewModel extends ViewModel {
         return pin.equals(pinConfirmation) ? true : false;
     }
 
-    private void setPhone(String phone){
-        this.phone = phone;
+    public void setPin(String pin){
+        user.setPin(pin);
+    }
+
+    public User getDataUser(){
+        return user;
     }
 }

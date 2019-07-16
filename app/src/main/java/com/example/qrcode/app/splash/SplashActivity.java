@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import com.example.qrcode.R;
 import com.example.qrcode.app.home.HomeActivity;
+import com.example.qrcode.app.pin.PinActivity;
 import com.example.qrcode.app.started.StartedActivity;
 import com.example.qrcode.base.BaseActivity;
 import com.example.qrcode.databinding.SplashActivityBinding;
@@ -23,7 +24,7 @@ public class SplashActivity extends BaseActivity<SplashActivityBinding, SplashVi
             @Override
             public void run() {
                 if(isLoggedIn()){
-                    gotoIntent(HomeActivity.class, null, true);
+                    gotoIntent(PinActivity.class, null, true);
                 }
                 else{
                     gotoIntent(StartedActivity.class, null, true);

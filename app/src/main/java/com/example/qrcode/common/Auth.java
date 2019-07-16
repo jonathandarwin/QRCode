@@ -17,16 +17,18 @@ public class Auth {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("phone", user.getPhone());
         editor.putString("balance", user.getBalance());
+        editor.putString("pin", user.getPin());
         editor.apply();
     }
 
     public User loadUserData(){
         return new User()
                 .setPhone(sharedPreferences.getString("phone", ""))
-                .setBalance(sharedPreferences.getString("balance", ""));
+                .setBalance(sharedPreferences.getString("balance", ""))
+                .setPin(sharedPreferences.getString("pin", ""));
     }
 
     public boolean isLoggedIn(){
-        return sharedPreferences.getString("email", "").equals("") ? false : true;
+        return sharedPreferences.getString("pin", "").equals("") ? false : true;
     }
 }

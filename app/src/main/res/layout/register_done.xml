@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
 
     <data>
 
@@ -12,45 +14,33 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:padding="@dimen/common_30dp"
-            android:orientation="horizontal"
-            android:gravity="center"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_above="@id/ll_done"
             >
 
-            <LinearLayout
+            <ImageView
+                android:layout_width="@dimen/common_100dp"
+                android:layout_height="@dimen/common_100dp"
+                android:src="@drawable/ic_done"
+                android:layout_weight="1"
+                />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border_edittext"
-                android:orientation="horizontal"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_register_base_phone_number"
-                    android:textSize="@dimen/text_18sp"
-                    android:padding="@dimen/common_20dp"
-                    />
-
-                <View
-                    style="@style/HorizontalDivider"/>
-
-                <EditText
-                    android:id="@+id/txtPhone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:padding="@dimen/common_20dp"
-                    android:background="@null"
-                    android:inputType="number"
-                    />
-
-            </LinearLayout>
+                android:text="@string/text_verification_done"
+                android:textSize="@dimen/text_18sp"
+                android:textColor="@color/colorBlack"
+                android:layout_weight="1"
+                />
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_done"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -59,11 +49,11 @@
             >
 
             <Button
-                android:id="@+id/btnNext"
+                android:id="@+id/btnDone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorBackground"
-                android:text="Next"
+                android:text="Done"
                 android:textColor="@color/colorWhite"
                 />
         </LinearLayout>

@@ -13,5 +13,15 @@
     <string name="text_register_phone_invalid">Please input valid phone number</string>
     <string name="text_register_pin_invalid">Please input your pin</string>
     <string name="text_register_pin_confirmation_invalid">Your confirmation pin is not match</string>
+    <string name="text_verification_done">Verification Done!</string>
     <string name="btn_delete">Delete</string>
+
+    <!-- PIN -->
+    <string name="text_input_pin">Please input your security pin</string>
+    <string name="text_incorrect_pin">Incorrect pin</string>
+
+    <!-- HOME -->
+    <string name="text_home_main_menu_scan">Scan</string>
+    <string name="text_home_main_menu_show_qr">Show QRCode</string>
+    <string name="text_home_main_menu_id">ID</string>
 </resources>

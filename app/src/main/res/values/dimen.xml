@@ -16,10 +16,13 @@
     <dimen name="common_48dp">48dp</dimen>
     <dimen name="common_50dp">50dp</dimen>
     <dimen name="common_100dp">100dp</dimen>
+    <dimen name="common_150dp">150dp</dimen>
     <dimen name="common_200dp">200dp</dimen>
 
     <!-- TEXT SIZE -->
     <dimen name="text_title">35sp</dimen>
+    <dimen name="text_12sp">12sp</dimen>
+    <dimen name="text_15sp">15sp</dimen>
     <dimen name="text_18sp">18sp</dimen>
     <dimen name="text_20sp">20sp</dimen>
     <dimen name="text_25sp">25sp</dimen>

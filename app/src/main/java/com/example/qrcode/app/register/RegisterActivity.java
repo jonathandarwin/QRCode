@@ -1,25 +1,21 @@
 package com.example.qrcode.app.register;
 
-import android.arch.lifecycle.Observer;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-
 import com.example.qrcode.R;
+import com.example.qrcode.app.home.HomeActivity;
 import com.example.qrcode.base.BaseActivity;
 import com.example.qrcode.databinding.RegisterActivityBinding;
 import com.example.qrcode.databinding.RegisterDoneBinding;
 import com.example.qrcode.databinding.RegisterPhoneNumberBinding;
 import com.example.qrcode.databinding.RegisterPinBinding;
 import com.example.qrcode.databinding.RegisterPinConfirmationBinding;
-import com.example.qrcode.model.User;
-import com.google.android.gms.common.internal.ResourceUtils;
 
 public class RegisterActivity extends BaseActivity<RegisterActivityBinding, RegisterViewModel>
             implements View.OnClickListener{
@@ -49,7 +45,7 @@ public class RegisterActivity extends BaseActivity<RegisterActivityBinding, Regi
         bindingPhoneNumber.btnNext.setOnClickListener(this);
         bindingPin.btnNext.setOnClickListener(this);
         bindingPinConfirmation.btnNext.setOnClickListener(this);
-        bindingDone.btnNext.setOnClickListener(this);
+        bindingDone.btnDone.setOnClickListener(this);
     }
 
     @Override
@@ -70,6 +66,7 @@ public class RegisterActivity extends BaseActivity<RegisterActivityBinding, Regi
         }
         else if(v.equals(bindingPinConfirmation.btnNext)){
             if(getViewModel().validatePinConfirmation(bindingPin.getPin(), bindingPinConfirmation.getPinConfirmation())){
+                getViewModel().setPin(bindingPin.getPin());
                 updateProgress();
                 getBinding().llContent.removeAllViews();
                 getBinding().llContent.addView(bindingDone.getRoot());
@@ -77,6 +74,10 @@ public class RegisterActivity extends BaseActivity<RegisterActivityBinding, Regi
             else{
                 showToast(getResources().getString(R.string.text_register_pin_confirmation_invalid));
             }
+        }
+        else if (v.equals(bindingDone.btnDone)){
+            saveUserData(getViewModel().getDataUser());
+            gotoIntent(HomeActivity.class, null, true);
         }
     }
 
