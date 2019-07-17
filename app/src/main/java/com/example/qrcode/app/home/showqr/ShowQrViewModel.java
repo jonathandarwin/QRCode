@@ -2,10 +2,7 @@ package com.example.qrcode.app.home.showqr;
 
 import android.arch.lifecycle.ViewModel;
 import android.graphics.Bitmap;
-
 import net.glxn.qrgen.android.QRCode;
-
-import java.io.File;
 
 public class ShowQrViewModel extends ViewModel {
 
