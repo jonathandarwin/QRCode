@@ -1,8 +1,8 @@
 package com.example.qrcode.repository;
 
 import android.support.annotation.NonNull;
-import android.util.Log;
 
+import com.example.qrcode.model.Transaction;
 import com.example.qrcode.model.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -10,34 +10,30 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import rx.Observable;
 import rx.subjects.PublishSubject;
 
-
-public class UserRepository implements ValueEventListener{
+public class TransferRepository implements ValueEventListener {
 
     DatabaseReference reference;
     final PublishSubject<DataSnapshot> result;
 
-    public UserRepository(){
+    public TransferRepository(){
         reference = FirebaseDatabase.getInstance().getReference();
         result = PublishSubject.create();
     }
 
-    public Observable<DataSnapshot> getPhoneNumber(String phone){
+    public void insertTransaction(Transaction transaction, String phone){
         try{
-            reference.child("user").orderByChild("phone").equalTo(phone).addListenerForSingleValueEvent(this);
+            reference.child("user").child(phone).child("transaction").setValue(transaction);
         }
         catch (Exception e){
-            result.onNext(null);
             e.printStackTrace();
         }
-        return result;
     }
 
-    public void insertUser(User user){
-        try{
-            reference.child("user").child(user.getPhone()).setValue(user);
+    public void updateBalance(User user){
+        try {
+            reference.child("user").child(user.getPhone()).child("balance").setValue(user.getBalance());
         }
         catch (Exception e){
             e.printStackTrace();

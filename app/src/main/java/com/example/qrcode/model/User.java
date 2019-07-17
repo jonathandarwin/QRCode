@@ -5,10 +5,13 @@ import android.databinding.Bindable;
 
 import com.example.qrcode.BR;
 
+import java.util.List;
+
 public class User extends BaseObservable {
     protected String phone;
     protected String balance;
     protected String pin;
+    protected List<Transaction> listTransaction;
 
     @Bindable
     public String getPhone() {
@@ -40,6 +43,17 @@ public class User extends BaseObservable {
     public User setPin(String pin) {
         this.pin = pin;
         notifyPropertyChanged(BR.pin);
+        return this;
+    }
+
+    @Bindable
+    public List<Transaction> getListTransaction() {
+        return listTransaction;
+    }
+
+    public User setListTransaction(List<Transaction> listTransaction) {
+        this.listTransaction = listTransaction;
+        notifyPropertyChanged(BR.listTransaction);
         return this;
     }
 }

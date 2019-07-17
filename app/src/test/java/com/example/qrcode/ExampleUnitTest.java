@@ -1,5 +1,7 @@
 package com.example.qrcode;
 
+import com.example.qrcode.app.home.HomeActivity;
+import com.example.qrcode.util.CalendarUtil;
 import com.example.qrcode.util.MoneyUtil;
 
 import org.junit.Test;

@@ -1,9 +1,9 @@
-package com.example.qrcode.app.home.scan;
+package com.example.qrcode.app.scan;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import com.example.qrcode.R;
-import com.example.qrcode.app.home.scan.transfer.TransferActivity;
+import com.example.qrcode.app.transfer.TransferActivity;
 import com.example.qrcode.base.BaseActivity;
 import com.example.qrcode.databinding.ScanActivityBinding;
 import com.example.qrcode.model.QrCode;

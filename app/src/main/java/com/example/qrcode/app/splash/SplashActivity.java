@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import com.example.qrcode.R;
-import com.example.qrcode.app.home.HomeActivity;
 import com.example.qrcode.app.pin.PinActivity;
 import com.example.qrcode.app.started.StartedActivity;
 import com.example.qrcode.base.BaseActivity;

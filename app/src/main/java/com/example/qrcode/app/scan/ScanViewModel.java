@@ -1,4 +1,4 @@
-package com.example.qrcode.app.home.scan;
+package com.example.qrcode.app.scan;
 
 import android.arch.lifecycle.ViewModel;
 

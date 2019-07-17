@@ -3,6 +3,7 @@
     <string name="app_id">jfk92DJkdK902D</string>
     <string name="text_error">Error. Please try again</string>
     <string name="text_success">Success</string>
+    <string name="text_label_nodata">No Data</string>
 
     <!-- STARTED -->
     <string name="text_slider_1">Welcome to\n\nQRCode</string>
@@ -27,6 +28,9 @@
     <string name="text_home_main_menu_id">ID</string>
     <string name="text_home_history">History</string>
     <string name="text_label_balance">Balance :\u0020</string>
+    <string name="text_history_transfer_in">You received %s from %s</string>
+    <string name="text_history_transfer_out">You transfer %s to %s </string>
+    <string name="text_history_top_up">Your top-up : %s already added to your account</string>
 
     <!-- SHOW QRCODE DIALOG -->
     <string name="text_title_show_qrcode">Scan me</string>
@@ -40,4 +44,10 @@
     <string name="text_transfer_to">Transfer to</string>
     <string name="text_transfer_input_label">Rp.</string>
     <string name="text_label_your_current_balance">Your current balance :\u0020</string>
+    <string name="text_not_enough_balance">Your balance is not enough</string>
+
+    <!-- DATETIME -->
+    <string name="time_format">%d:%d</string>
+    <string name="date_format">%d-%02d-%02d</string>
+    <string name="date_view_format">%d %s %d</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.qrcode.app.home.showqr;
+package com.example.qrcode.app.showqr;
 
 import android.arch.lifecycle.ViewModel;
 import android.graphics.Bitmap;
@@ -8,7 +8,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import net.glxn.qrgen.android.QRCode;
-import net.glxn.qrgen.core.scheme.VCard;
 
 import org.json.JSONObject;
 

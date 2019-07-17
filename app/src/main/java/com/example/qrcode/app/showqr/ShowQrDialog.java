@@ -1,4 +1,4 @@
-package com.example.qrcode.app.home.showqr;
+package com.example.qrcode.app.showqr;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;

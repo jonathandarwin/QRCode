@@ -22,11 +22,11 @@
         <activity android:name=".app.pin.PinActivity"/>
         <activity android:name=".app.register.RegisterActivity"/>
         <activity android:name=".app.home.HomeActivity"/>
-        <activity android:name=".app.home.showqr.ShowQrDialog"
+        <activity android:name=".app.showqr.ShowQrDialog"
             android:theme="@style/Theme.Base.Dialog"
             />
-        <activity android:name=".app.home.scan.ScanActivity"/>
-        <activity android:name=".app.home.scan.transfer.TransferActivity"/>
+        <activity android:name=".app.scan.ScanActivity"/>
+        <activity android:name=".app.transfer.TransferActivity"/>
     </application>
 
 </manifest>
