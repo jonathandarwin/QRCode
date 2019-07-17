@@ -2,6 +2,8 @@ package com.example.qrcode.app.home.scan;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
+
 import com.example.qrcode.R;
 import com.example.qrcode.app.home.scan.transfer.TransferActivity;
 import com.example.qrcode.base.BaseActivity;
@@ -23,6 +25,7 @@ public class ScanActivity extends BaseActivity<ScanActivityBinding, ScanViewMode
         zXingScannerView = new ZXingScannerView(this);
         setContentView(zXingScannerView);
         zXingScannerView.setResultHandler(result ->{
+            Log.d("masuksiniga", "result : " + result.getText());
             Bundle bundle = new Bundle();
             bundle.putString("phone", result.getText());
             gotoIntent(TransferActivity.class, bundle, true);

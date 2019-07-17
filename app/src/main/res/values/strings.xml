@@ -30,4 +30,8 @@
     <string name="text_title_show_qrcode">Scan me</string>
     <string name="text_phone_show_qrcode">Phone Number</string>
 
+    <!-- TRANSFER -->
+    <string name="text_toolbar_transfer">Transfer</string>
+    <string name="text_transfer_to">Transfer to</string>
+    <string name="text_transfer_input_label">Rp.</string>
 </resources>
