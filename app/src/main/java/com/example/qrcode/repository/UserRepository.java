@@ -44,6 +44,16 @@ public class UserRepository implements ValueEventListener{
         }
     }
 
+    public Observable<DataSnapshot> getHistory(String phone){
+        try{
+            reference.child("user").child(phone).child("transaction").addListenerForSingleValueEvent(this);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return result;
+    }
+
     @Override
     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
         result.onNext(dataSnapshot);

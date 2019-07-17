@@ -24,7 +24,7 @@ public class TransferRepository implements ValueEventListener {
 
     public void insertTransaction(Transaction transaction, String phone){
         try{
-            reference.child("user").child(phone).child("transaction").setValue(transaction);
+            reference.child("user").child(phone).child("transaction").push().setValue(transaction);
         }
         catch (Exception e){
             e.printStackTrace();
