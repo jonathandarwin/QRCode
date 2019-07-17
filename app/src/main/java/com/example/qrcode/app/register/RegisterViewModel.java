@@ -14,6 +14,7 @@ public class RegisterViewModel extends ViewModel {
     public static final int PHONE_INVALID = 3;
 
     private UserRepository userRepository;
+    private boolean isExists;
     User user = new User();
 
     public RegisterViewModel(){
@@ -29,10 +30,10 @@ public class RegisterViewModel extends ViewModel {
                             if(dataSnapshot != null){
                                 for(DataSnapshot data : dataSnapshot.getChildren()){
                                     user.setBalance(data.getValue(User.class).getBalance());
+                                    setIsExists(true);
                                 }
                                 user.setPhone(phone);
                                 result.setValue(PHONE_VALID);
-
                             }
                             else{
                                 result.setValue(ERROR);
@@ -50,6 +51,11 @@ public class RegisterViewModel extends ViewModel {
             result.setValue(PHONE_INVALID);
         }
         return result;
+    }
+
+    public void insertUser(User user){
+        user.setBalance("0");
+        userRepository.insertUser(user);
     }
 
     public String processPin(String pin, String input, String delete){
@@ -76,5 +82,13 @@ public class RegisterViewModel extends ViewModel {
 
     public User getDataUser(){
         return user;
+    }
+
+    public boolean getIsExists(){
+        return isExists;
+    }
+
+    public void setIsExists(boolean isExists){
+        this.isExists = isExists;
     }
 }

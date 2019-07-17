@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="balance"
+            type="String"/>
     </data>
 
     <RelativeLayout
@@ -35,14 +38,30 @@
                 android:background="@color/colorWhite"
                 />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/common_12dp"
-                android:text="Balance : 20000"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/text_18sp"
-                />
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_label_balance"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_18sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{balance}"
+                    tools:text="20000"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_18sp"
+                    />
+
+            </LinearLayout>
 
         </LinearLayout>
 

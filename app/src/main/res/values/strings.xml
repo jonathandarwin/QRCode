@@ -26,6 +26,7 @@
     <string name="text_home_main_menu_show_qr">Show QRCode</string>
     <string name="text_home_main_menu_id">ID</string>
     <string name="text_home_history">History</string>
+    <string name="text_label_balance">Balance :\u0020</string>
 
     <!-- SHOW QRCODE DIALOG -->
     <string name="text_title_show_qrcode">Scan me</string>
@@ -38,4 +39,5 @@
     <string name="text_toolbar_transfer">Transfer</string>
     <string name="text_transfer_to">Transfer to</string>
     <string name="text_transfer_input_label">Rp.</string>
+    <string name="text_label_your_current_balance">Your current balance :\u0020</string>
 </resources>

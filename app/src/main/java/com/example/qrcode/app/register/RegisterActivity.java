@@ -68,6 +68,9 @@ public class RegisterActivity extends BaseActivity<RegisterActivityBinding, Regi
             if(getViewModel().validatePinConfirmation(bindingPin.getPin(), bindingPinConfirmation.getPinConfirmation())){
                 getViewModel().setPin(bindingPin.getPin());
                 updateProgress();
+                if(!getViewModel().getIsExists()){
+                    getViewModel().insertUser(getViewModel().getDataUser());
+                }
                 getBinding().llContent.removeAllViews();
                 getBinding().llContent.addView(bindingDone.getRoot());
             }

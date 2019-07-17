@@ -1,6 +1,7 @@
 package com.example.qrcode.app.home;
 
 import android.app.Dialog;
+import android.arch.lifecycle.Observer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -11,6 +12,8 @@ import com.example.qrcode.app.home.scan.ScanActivity;
 import com.example.qrcode.app.home.showqr.ShowQrDialog;
 import com.example.qrcode.base.BaseActivity;
 import com.example.qrcode.databinding.HomeActivityBinding;
+import com.example.qrcode.model.User;
+import com.example.qrcode.util.MoneyUtil;
 import com.google.zxing.client.android.Intents;
 
 public class HomeActivity extends BaseActivity<HomeActivityBinding, HomeViewModel>
@@ -22,8 +25,9 @@ public class HomeActivity extends BaseActivity<HomeActivityBinding, HomeViewMode
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
+        updateDataUser();
+        updateBalance();
     }
 
     @Override
@@ -43,5 +47,18 @@ public class HomeActivity extends BaseActivity<HomeActivityBinding, HomeViewMode
         } else if (v.equals(getBinding().menuId)){
 
         }
+    }
+
+    private void updateDataUser(){
+        getViewModel().updateUserData(loadUserData().getPhone()).observe(this, user -> {
+            if(!user.equals(loadUserData())){
+                saveUserData(user);
+                updateBalance();
+            }
+        });
+    }
+
+    private void updateBalance(){
+        getBinding().setBalance(MoneyUtil.convertMoney(loadUserData().getBalance()));
     }
 }

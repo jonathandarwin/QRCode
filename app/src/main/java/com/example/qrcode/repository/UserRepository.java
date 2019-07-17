@@ -35,6 +35,15 @@ public class UserRepository implements ValueEventListener{
         return result;
     }
 
+    public void insertUser(User user){
+        try{
+            reference.child("user").push().setValue(user);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
         result.onNext(dataSnapshot);
