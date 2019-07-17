@@ -33,13 +33,23 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/ll_qrcode"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/ll_header"
             android:layout_centerHorizontal="true"
             >
+
+            <TextView
+                android:id="@+id/error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_error"
+                android:textColor="@color/colorRed"
+                android:layout_centerInParent="true"
+                android:visibility="gone"
+                />
 
             <ImageView
                 android:id="@+id/qrcode"
@@ -48,7 +58,7 @@
                 tools:src="@drawable/ic_scan"
                 />
 
-        </LinearLayout>
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/ll_information"

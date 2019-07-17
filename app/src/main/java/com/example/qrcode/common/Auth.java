@@ -10,7 +10,7 @@ public class Auth {
     SharedPreferences sharedPreferences;
 
     public Auth(Context context){
-        sharedPreferences = context.getSharedPreferences("QRCode", Context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences("QrCode", Context.MODE_PRIVATE);
     }
 
     public void saveUserData(User user){
