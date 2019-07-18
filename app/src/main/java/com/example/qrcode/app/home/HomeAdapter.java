@@ -15,6 +15,7 @@ import com.example.qrcode.databinding.ListHistoryItemBinding;
 import com.example.qrcode.model.BaseHistory;
 import com.example.qrcode.model.HeaderHistory;
 import com.example.qrcode.model.Transaction;
+import com.example.qrcode.util.CalendarUtil;
 import com.example.qrcode.util.MoneyUtil;
 
 import java.util.List;
@@ -63,6 +64,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         if(viewHolder instanceof HeaderViewHolder){
             HeaderHistory header = (HeaderHistory) listHistory.get(i);
+            header.setDate(CalendarUtil.convertDateToView(header.getDate()));
             ((HeaderViewHolder) viewHolder).binding.setViewModel(header);
         }
         else if (viewHolder instanceof ItemViewHolder){

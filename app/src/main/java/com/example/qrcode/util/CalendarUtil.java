@@ -4,7 +4,10 @@ import android.content.Context;
 
 import com.example.qrcode.R;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class CalendarUtil {
     public static String getTime(Context context){
@@ -63,5 +66,34 @@ public class CalendarUtil {
                 break;
         }
         return name;
+    }
+
+    public static String convertDateToView(String rawDate){
+        String finDate = "";
+        DateFormat init = new SimpleDateFormat("yyyy-MM-dd");
+        DateFormat fin = new SimpleDateFormat("dd MMMM yyyy");
+        try{
+            Date date = init.parse(rawDate);
+            finDate = fin.format(date);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return finDate;
+    }
+
+    public static String convertViewToDate(String rawDate){
+        String finDate = "";
+        DateFormat init = new SimpleDateFormat("dd MMMM yyyy");
+        DateFormat fin = new SimpleDateFormat("yyyy-MM-dd");
+
+        try{
+            Date date = init.parse(rawDate);
+            finDate = fin.format(date);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return finDate;
     }
 }

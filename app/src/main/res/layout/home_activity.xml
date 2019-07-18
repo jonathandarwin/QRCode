@@ -196,6 +196,9 @@
                 android:textSize="@dimen/text_20sp"
                 />
 
+            <View
+                style="@style/VerticalDivider"/>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

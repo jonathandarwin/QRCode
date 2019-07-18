@@ -2,7 +2,9 @@ package com.example.qrcode.app.home;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
+import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModel;
+import android.support.annotation.Nullable;
 
 import com.example.qrcode.model.BaseHistory;
 import com.example.qrcode.model.HeaderHistory;
@@ -10,12 +12,9 @@ import com.example.qrcode.model.Transaction;
 import com.example.qrcode.model.User;
 import com.example.qrcode.repository.UserRepository;
 import com.google.firebase.database.DataSnapshot;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import rx.Observable;
-import rx.subjects.PublishSubject;
+import rx.subscriptions.CompositeSubscription;
 
 public class HomeViewModel extends ViewModel {
 
@@ -41,20 +40,21 @@ public class HomeViewModel extends ViewModel {
         return result;
     }
 
+    // repo.callHist
     public LiveData<List<Transaction>> getHistory(String phone){
         final MutableLiveData<List<Transaction>> result = new MutableLiveData<>();
         userRepository.getHistory(phone)
                 .subscribe(dataSnapshot ->  {
-                   if(dataSnapshot != null){
-                       List<Transaction> item = new ArrayList<>();
+                    if(dataSnapshot != null){
+                        List<Transaction> item = new ArrayList<>();
                         for(DataSnapshot data : dataSnapshot.getChildren()){
                             item.add(data.getValue(Transaction.class));
                         }
-                       result.setValue(item);
-                   }
-                   else{
-                       result.setValue(new ArrayList<>());
-                   }
+                        result.setValue(item);
+                    }
+                    else{
+                        result.setValue(new ArrayList<>());
+                    }
                 }, error -> {
                     result.setValue(new ArrayList<>());
                 });
@@ -71,4 +71,5 @@ public class HomeViewModel extends ViewModel {
         }
         return listHistory;
     }
+
 }

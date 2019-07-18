@@ -17,19 +17,18 @@ import rx.subjects.PublishSubject;
 public class UserRepository implements ValueEventListener{
 
     DatabaseReference reference;
-    final PublishSubject<DataSnapshot> result;
+    PublishSubject<DataSnapshot> result;
 
     public UserRepository(){
         reference = FirebaseDatabase.getInstance().getReference();
-        result = PublishSubject.create();
     }
 
     public Observable<DataSnapshot> getPhoneNumber(String phone){
+        result = PublishSubject.create();
         try{
             reference.child("user").orderByChild("phone").equalTo(phone).addListenerForSingleValueEvent(this);
         }
         catch (Exception e){
-            result.onNext(null);
             e.printStackTrace();
         }
         return result;
@@ -45,6 +44,7 @@ public class UserRepository implements ValueEventListener{
     }
 
     public Observable<DataSnapshot> getHistory(String phone){
+        result = PublishSubject.create();
         try{
             reference.child("user").child(phone).child("transaction").addListenerForSingleValueEvent(this);
         }
@@ -57,10 +57,12 @@ public class UserRepository implements ValueEventListener{
     @Override
     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
         result.onNext(dataSnapshot);
+        result.onCompleted();
     }
 
     @Override
     public void onCancelled(@NonNull DatabaseError databaseError) {
         result.onNext(null);
+        result.onCompleted();
     }
 }

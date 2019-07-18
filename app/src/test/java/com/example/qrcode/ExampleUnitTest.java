@@ -27,4 +27,10 @@ public class ExampleUnitTest {
 
     @Test
     public void removeDotMoney(){assertEquals(MoneyUtil.removeDotMoney("1"), "1");}
+
+    @Test
+    public void convertViewToDate(){assertEquals(CalendarUtil.convertDateToView("2019-07-17"), "17 July 2019");}
+
+    @Test
+    public void convertDateToView(){assertEquals(CalendarUtil.convertViewToDate("17 July 2019"), "2019-07-17");}
 }

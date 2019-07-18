@@ -12,11 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="@dimen/common_4dp"
+        android:layout_marginLeft="@dimen/common_16dp"
+        android:layout_marginTop="@dimen/common_4dp"
+        android:layout_marginBottom="@dimen/common_4dp"
+        android:background="@color/colorWhite"
         >
 
         <LinearLayout
-            android:layout_width="@dimen/common_8dp"
+            android:layout_width="@dimen/common_4dp"
             android:layout_height="match_parent"
             android:background="@color/colorBackground"
 
@@ -27,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{text}"
-            android:padding="@dimen/common_12dp"
+            android:padding="@dimen/common_8dp"
             tools:text="You received Rp 10.000 from +623487891"
             />
 
