@@ -46,6 +46,9 @@
     <string name="text_label_your_current_balance">Your current balance :\u0020</string>
     <string name="text_not_enough_balance">Your balance is not enough</string>
 
+    <!-- TOP UP -->
+    <string name="text_button_save">Save</string>
+
     <!-- DATETIME -->
     <string name="time_format">%d:%d</string>
     <string name="date_format">%d-%02d-%02d</string>

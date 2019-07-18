@@ -27,6 +27,8 @@
             />
         <activity android:name=".app.scan.ScanActivity"/>
         <activity android:name=".app.transfer.TransferActivity"/>
+        <activity android:name=".app.topup.TopUpActivity"
+            android:theme="@style/Theme.Base.Dialog"/>
     </application>
 
 </manifest>

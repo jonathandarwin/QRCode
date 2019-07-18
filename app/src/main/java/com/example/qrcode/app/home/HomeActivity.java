@@ -10,6 +10,7 @@ import android.view.View;
 import com.example.qrcode.R;
 import com.example.qrcode.app.scan.ScanActivity;
 import com.example.qrcode.app.showqr.ShowQrDialog;
+import com.example.qrcode.app.topup.TopUpActivity;
 import com.example.qrcode.base.BaseActivity;
 import com.example.qrcode.databinding.HomeActivityBinding;
 import com.example.qrcode.model.BaseHistory;
@@ -54,11 +55,10 @@ public class HomeActivity extends BaseActivity<HomeActivityBinding, HomeViewMode
     public void onClick(View v) {
         if(v.equals(getBinding().menuScan)){
             gotoIntent(ScanActivity.class, null, false);
-        }
-        else if(v.equals(getBinding().menuShowQr)){
+        } else if(v.equals(getBinding().menuShowQr)){
             gotoIntent(ShowQrDialog.class, null, false);
         } else if (v.equals(getBinding().menuTopup)){
-
+            gotoIntent(TopUpActivity.class, null, false);
         }
     }
 
