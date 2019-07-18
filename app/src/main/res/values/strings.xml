@@ -25,7 +25,7 @@
     <!-- HOME -->
     <string name="text_home_main_menu_scan">Scan</string>
     <string name="text_home_main_menu_show_qr">Show QRCode</string>
-    <string name="text_home_main_menu_id">ID</string>
+    <string name="text_home_main_menu_top_up">Top Up</string>
     <string name="text_home_history">History</string>
     <string name="text_label_balance">Balance :\u0020</string>
     <string name="text_history_transfer_in">You received %s from %s</string>

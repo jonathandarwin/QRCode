@@ -38,7 +38,7 @@ public class HomeActivity extends BaseActivity<HomeActivityBinding, HomeViewMode
     protected void setListener() {
         getBinding().menuScan.setOnClickListener(this);
         getBinding().menuShowQr.setOnClickListener(this);
-        getBinding().menuId.setOnClickListener(this);
+        getBinding().menuTopup.setOnClickListener(this);
     }
 
     @Override
@@ -57,7 +57,7 @@ public class HomeActivity extends BaseActivity<HomeActivityBinding, HomeViewMode
         }
         else if(v.equals(getBinding().menuShowQr)){
             gotoIntent(ShowQrDialog.class, null, false);
-        } else if (v.equals(getBinding().menuId)){
+        } else if (v.equals(getBinding().menuTopup)){
 
         }
     }
