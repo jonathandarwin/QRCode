@@ -18,6 +18,8 @@ import com.example.qrcode.model.Transaction;
 import com.example.qrcode.util.MoneyUtil;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class HomeActivity extends BaseActivity<HomeActivityBinding, HomeViewModel>
@@ -94,6 +96,7 @@ public class HomeActivity extends BaseActivity<HomeActivityBinding, HomeViewMode
                 if(list.size() == 0){
                     getBinding().noData.setVisibility(View.VISIBLE);
                 }
+                Collections.reverse(list);
                 listHistory.clear();
                 listHistory.addAll(getViewModel().processHistory(list));
                 adapter.notifyDataSetChanged();

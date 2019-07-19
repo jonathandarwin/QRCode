@@ -24,7 +24,7 @@ public class TransferActivity extends BaseActivity<TransferActivityBinding, Tran
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getViewModel().setUpdatePhone(true);
+        getViewModel().setUpdatePrice(true);
         getBinding().setPhone(getIntent().getExtras().getString("phone"));
         getBinding().setPrice("");
         getBinding().setBalance(MoneyUtil.convertMoney(loadUserData().getBalance()));
@@ -44,13 +44,13 @@ public class TransferActivity extends BaseActivity<TransferActivityBinding, Tran
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String money = MoneyUtil.removeDotMoney(s.toString());
                 String newMoney = MoneyUtil.convertMoney(money);
-                if(getViewModel().getUpdatePhone()){
-                    getViewModel().setUpdatePhone(false);
+                if(getViewModel().getUpdatePrice()){
+                    getViewModel().setUpdatePrice(false);
                     getBinding().txtPrice.setText(newMoney);
                     getBinding().txtPrice.setSelection(newMoney.length());
                 }
                 else{
-                    getViewModel().setUpdatePhone(true);
+                    getViewModel().setUpdatePrice(true);
                 }
             }
 

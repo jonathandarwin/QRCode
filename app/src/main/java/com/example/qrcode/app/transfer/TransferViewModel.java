@@ -10,7 +10,7 @@ import com.google.firebase.database.DataSnapshot;
 
 public class TransferViewModel extends ViewModel {
 
-    protected boolean updatePhone;
+    protected boolean updatePrice;
     protected TransferRepository transferRepository;
     protected UserRepository userRepository;
 
@@ -19,12 +19,12 @@ public class TransferViewModel extends ViewModel {
         userRepository = new UserRepository();
     }
 
-    public void setUpdatePhone(boolean updatePhone){
-        this.updatePhone = updatePhone;
+    public void setUpdatePrice(boolean updatePrice){
+        this.updatePrice = updatePrice;
     }
 
-    public boolean getUpdatePhone(){
-        return updatePhone;
+    public boolean getUpdatePrice(){
+        return updatePrice;
     }
 
     public boolean validateBalance(String balance, String price){

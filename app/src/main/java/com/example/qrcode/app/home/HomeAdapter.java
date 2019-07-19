@@ -70,7 +70,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         else if (viewHolder instanceof ItemViewHolder){
             Transaction transaction = (Transaction) listHistory.get(i);
             String message = "";
-            switch (transaction.getItemType()){
+            switch (transaction.getType()){
                 case Transaction.TRANSFER_IN:
                     message = String.format(context.getResources().getString(R.string.text_history_transfer_in), MoneyUtil.convertMoney(transaction.getAmount()), transaction.getPhone());
                     break;

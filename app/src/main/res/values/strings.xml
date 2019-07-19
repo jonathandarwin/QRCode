@@ -30,7 +30,7 @@
     <string name="text_label_balance">Balance :\u0020</string>
     <string name="text_history_transfer_in">You received %s from %s</string>
     <string name="text_history_transfer_out">You transfer %s to %s </string>
-    <string name="text_history_top_up">Your top-up : %s already added to your account</string>
+    <string name="text_history_top_up">Your top-up : %s is already added to your account</string>
 
     <!-- SHOW QRCODE DIALOG -->
     <string name="text_title_show_qrcode">Scan me</string>
