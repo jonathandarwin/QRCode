@@ -60,6 +60,7 @@ public class RegisterActivity extends BaseActivity<RegisterActivityBinding, Regi
                 updateProgress();
                 getBinding().llContent.removeAllViews();
                 getBinding().llContent.addView(bindingPinConfirmation.getRoot());
+                getBinding().setTitle(getResources().getString(R.string.text_title_step_3));
             }
             else{
                 showToast(getResources().getString(R.string.text_register_pin_invalid));
@@ -74,6 +75,7 @@ public class RegisterActivity extends BaseActivity<RegisterActivityBinding, Regi
                 }
                 getBinding().llContent.removeAllViews();
                 getBinding().llContent.addView(bindingDone.getRoot());
+                getBinding().setTitle(getResources().getString(R.string.text_title_step_4));
             }
             else{
                 showToast(getResources().getString(R.string.text_register_pin_confirmation_invalid));
@@ -105,6 +107,7 @@ public class RegisterActivity extends BaseActivity<RegisterActivityBinding, Regi
         bindingPhoneNumber.setPhone("");
         bindingPin.setPin("");
         bindingPinConfirmation.setPinConfirmation("");
+        getBinding().setTitle(getResources().getString(R.string.text_title_step_1));
 
         getBinding().setDot1(getResources().getDrawable(R.drawable.slider_dot_done));
         getBinding().setDot2(getResources().getDrawable(R.drawable.slider_dot));
@@ -172,6 +175,7 @@ public class RegisterActivity extends BaseActivity<RegisterActivityBinding, Regi
                 updateProgress();
                 getBinding().llContent.removeAllViews();
                 getBinding().llContent.addView(bindingPin.getRoot());
+                getBinding().setTitle(getResources().getString(R.string.text_title_step_2));
                 break;
             case RegisterViewModel.PHONE_INVALID:
                 showToast(getResources().getString(R.string.text_register_phone_invalid));

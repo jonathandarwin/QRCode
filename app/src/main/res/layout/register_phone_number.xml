@@ -53,15 +53,16 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:background="@color/colorWhite"
-            android:padding="@dimen/common_20dp">
+            >
 
             <Button
                 android:id="@+id/btnNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorBackground"
+                android:background="@drawable/background"
                 android:text="Next"
                 android:textColor="@color/colorWhite" />
+
         </LinearLayout>
 
         <ProgressBar

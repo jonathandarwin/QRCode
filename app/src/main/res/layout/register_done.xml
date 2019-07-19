@@ -44,7 +44,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:padding="@dimen/common_20dp"
             android:background="@color/colorWhite"
             >
 
@@ -52,7 +51,7 @@
                 android:id="@+id/btnDone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorBackground"
+                android:background="@drawable/background"
                 android:text="Done"
                 android:textColor="@color/colorWhite"
                 />

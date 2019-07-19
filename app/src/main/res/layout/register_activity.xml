@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -29,6 +30,10 @@
         <variable
             name="line3"
             type="int"/>
+
+        <variable
+            name="title"
+            type="String"/>
     </data>
 
     <LinearLayout
@@ -38,62 +43,96 @@
         >
 
         <LinearLayout
-            android:id="@+id/ll_progress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:padding="@dimen/common_20dp"
-            android:gravity="center"
             android:background="@color/colorWhite"
             >
 
-            <ImageView
-                android:id="@+id/dot1"
-                android:layout_width="@dimen/common_30dp"
-                android:layout_height="@dimen/common_30dp"
-                android:background="@{dot1}"
-                />
+            <LinearLayout
+                android:id="@+id/ll_progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:id="@+id/dot1"
+                    android:layout_width="@dimen/common_30dp"
+                    android:layout_height="@dimen/common_30dp"
+                    android:background="@{dot1}"
+                    tools:background="@drawable/slider_dot_done"
+                    />
+
+                <LinearLayout
+                    android:layout_width="@dimen/common_50dp"
+                    android:layout_height="@dimen/common_4dp"
+                    android:background="@{line1}"
+                    tools:background="@color/colorBackground"
+                    />
+
+                <View
+                    android:id="@+id/dot2"
+                    android:layout_width="@dimen/common_30dp"
+                    android:layout_height="@dimen/common_30dp"
+                    android:background="@{dot2}"
+                    tools:background="@drawable/slider_dot_done"
+                    />
+
+                <LinearLayout
+                    android:layout_width="@dimen/common_50dp"
+                    android:layout_height="@dimen/common_4dp"
+                    android:background="@{line2}"
+                    tools:background="@color/colorBackground"
+                    />
+
+                <View
+                    android:id="@+id/dot3"
+                    android:layout_width="@dimen/common_30dp"
+                    android:layout_height="@dimen/common_30dp"
+                    android:background="@{dot3}"
+                    tools:background="@drawable/slider_dot_done"
+                    />
+
+                <LinearLayout
+                    android:layout_width="@dimen/common_50dp"
+                    android:layout_height="@dimen/common_4dp"
+                    android:background="@{line3}"
+                    tools:background="@color/colorProgresLine"
+                    />
+
+                <View
+                    android:id="@+id/dot4"
+                    android:layout_width="@dimen/common_30dp"
+                    android:layout_height="@dimen/common_30dp"
+                    android:background="@{dot4}"
+                    tools:background="@drawable/slider_dot"
+                    />
+
+            </LinearLayout>
 
             <LinearLayout
-                android:layout_width="@dimen/common_50dp"
-                android:layout_height="@dimen/common_4dp"
-                android:background="@{line1}"
-                />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_16dp"
+                android:gravity="center"
+                >
 
-            <View
-                android:id="@+id/dot2"
-                android:layout_width="@dimen/common_30dp"
-                android:layout_height="@dimen/common_30dp"
-                android:background="@{dot2}"
-                />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Step 1 : Register your phone number"
+                    android:textSize="@dimen/text_18sp"
+                    android:textStyle="bold"
+                    android:text="@{title}"
+                    />
 
-            <LinearLayout
-                android:layout_width="@dimen/common_50dp"
-                android:layout_height="@dimen/common_4dp"
-                android:background="@{line2}"
-                />
-
-            <View
-                android:id="@+id/dot3"
-                android:layout_width="@dimen/common_30dp"
-                android:layout_height="@dimen/common_30dp"
-                android:background="@{dot3}"
-                />
-
-            <LinearLayout
-                android:layout_width="@dimen/common_50dp"
-                android:layout_height="@dimen/common_4dp"
-                android:background="@{line3}"
-                />
-
-            <View
-                android:id="@+id/dot4"
-                android:layout_width="@dimen/common_30dp"
-                android:layout_height="@dimen/common_30dp"
-                android:background="@{dot4}"
-                />
+            </LinearLayout>
 
         </LinearLayout>
+
 
         <LinearLayout
             android:id="@+id/ll_content"

@@ -17,6 +17,10 @@
     <string name="text_register_pin_confirmation_invalid">Your confirmation pin is not match</string>
     <string name="text_verification_done">Verification Done!</string>
     <string name="btn_delete">Delete</string>
+    <string name="text_title_step_1">Step 1 : Register your phone number</string>
+    <string name="text_title_step_2">Step 2 : Input your pin</string>
+    <string name="text_title_step_3">Step 3 : Verification your pin</string>
+    <string name="text_title_step_4">Step 4 : Done</string>
 
     <!-- PIN -->
     <string name="text_input_pin">Please input your security pin</string>
