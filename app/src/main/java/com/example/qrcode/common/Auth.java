@@ -31,4 +31,12 @@ public class Auth {
     public boolean isLoggedIn(){
         return sharedPreferences.getString("pin", "").equals("") ? false : true;
     }
+
+    public void deleteUserData(){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove("phone")
+                .remove("balance")
+                .remove("pin")
+                .commit();
+    }
 }

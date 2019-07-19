@@ -13,4 +13,7 @@
 
     <color name="colorBorder">#8F8F8F</color>
     <color name="colorProgresLine">#D8D8D8</color>
+
+    <color name="colorTransferIn">#008000</color>
+    <color name="colorTransferOut">#BC0011</color>
 </resources>

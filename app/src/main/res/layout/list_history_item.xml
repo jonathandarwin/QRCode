@@ -6,6 +6,14 @@
         <variable
             name="text"
             type="String"/>
+
+        <variable
+            name="time"
+            type="String"/>
+
+        <variable
+            name="backgroundColor"
+            type="int"/>
     </data>
 
     <LinearLayout
@@ -21,10 +29,18 @@
         <LinearLayout
             android:layout_width="@dimen/common_4dp"
             android:layout_height="match_parent"
-            android:background="@color/colorBackground"
-
+            android:background="@{backgroundColor}"
+            tools:background="@color/colorBackground"
             >
         </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{time}"
+            android:padding="@dimen/common_8dp"
+            tools:text="18:30"
+            />
 
         <TextView
             android:layout_width="wrap_content"

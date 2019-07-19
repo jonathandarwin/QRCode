@@ -64,7 +64,7 @@ public class HomeViewModel extends ViewModel {
     public List<BaseHistory> processHistory(List<Transaction> listTransaction){
         List<BaseHistory> listHistory = new ArrayList<>();
         for(int i=0; i<listTransaction.size(); i++){
-            if(i == 0 || listTransaction.get(i).getDate() != listTransaction.get(i-1).getDate()){
+            if(i == 0 || !listTransaction.get(i).getDate().equals(listTransaction.get(i-1).getDate())){
                 listHistory.add(new HeaderHistory().setDate(listTransaction.get(i).getDate()));
             }
             listHistory.add(listTransaction.get(i));

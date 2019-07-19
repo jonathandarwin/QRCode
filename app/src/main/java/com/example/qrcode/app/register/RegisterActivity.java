@@ -52,6 +52,7 @@ public class RegisterActivity extends BaseActivity<RegisterActivityBinding, Regi
     public void onClick(View v) {
         if(v.equals(bindingPhoneNumber.btnNext)){
             String phone = getResources().getString(R.string.text_register_base_phone_number).concat(bindingPhoneNumber.getPhone().trim());
+            setLoaderPhoneNumber(true);
             getViewModel().validatePhone(phone).observe(this, this::handleValidatePhone);
         }
         else if(v.equals(bindingPin.btnNext)){
@@ -165,6 +166,7 @@ public class RegisterActivity extends BaseActivity<RegisterActivityBinding, Regi
     }
 
     private void handleValidatePhone(Integer status){
+        setLoaderPhoneNumber(false);
         switch (status){
             case RegisterViewModel.PHONE_VALID:
                 updateProgress();
@@ -178,5 +180,10 @@ public class RegisterActivity extends BaseActivity<RegisterActivityBinding, Regi
                 showToast(getResources().getString(R.string.text_error));
                 break;
         }
+    }
+
+    private void setLoaderPhoneNumber(boolean isShown){
+        bindingPhoneNumber.loader.setVisibility(isShown ? View.VISIBLE : View.GONE);
+        bindingPhoneNumber.btnNext.setEnabled(isShown ? false : true);
     }
 }

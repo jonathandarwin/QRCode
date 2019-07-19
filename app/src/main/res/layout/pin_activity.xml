@@ -12,246 +12,269 @@
             type="String"/>
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/common_28dp"
-        android:orientation="vertical"
-        android:background="@drawable/background"
-        >
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/common_28dp"
+            android:orientation="vertical"
+            android:background="@drawable/background"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="0.5"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_input_pin"
+                    android:textSize="@dimen/text_18sp"
+                    android:textColor="@color/colorWhite"
+                    />
+
+            </LinearLayout>
+
+            <View
+                style="@style/VerticalDivider"/>
+
+            <!-- OTP -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="0.5"
+                >
+
+                <com.mukesh.OtpView
+                    android:id="@+id/txtOtp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:height="@dimen/common_40dp"
+                    android:itemBackground="@color/colorWhite"
+                    android:text="@{displayPin}"
+                    app:itemCount="6"
+                    app:itemSpacing="@dimen/common_12dp"
+                    app:itemWidth="@dimen/common_40dp"
+                    app:lineColor="@color/colorBrown"
+                    app:viewType="rectangle" />
+
+            </LinearLayout>
+
+            <View
+                style="@style/VerticalDivider"/>
+
+            <!-- KEYBOARD -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="@dimen/common_20dp"
+                android:layout_weight="0.5"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+
+                    <Button
+                        android:id="@+id/btn1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_18sp"
+                        android:text="1"
+                        android:layout_weight="1"
+                        android:onClick="onButtonPinClick"
+                        />
+
+                    <Button
+                        android:id="@+id/btn2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_18sp"
+                        android:text="2"
+                        android:layout_weight="1"
+                        android:onClick="onButtonPinClick"
+                        />
+
+                    <Button
+                        android:id="@+id/btn3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_18sp"
+                        android:text="3"
+                        android:layout_weight="1"
+                        android:onClick="onButtonPinClick"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+
+                    <Button
+                        android:id="@+id/btn4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_18sp"
+                        android:text="4"
+                        android:layout_weight="1"
+                        android:onClick="onButtonPinClick"
+                        />
+
+                    <Button
+                        android:id="@+id/btn5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_18sp"
+                        android:text="5"
+                        android:layout_weight="1"
+                        android:onClick="onButtonPinClick"
+                        />
+
+                    <Button
+                        android:id="@+id/btn6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_18sp"
+                        android:text="6"
+                        android:layout_weight="1"
+                        android:onClick="onButtonPinClick"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+
+                    <Button
+                        android:id="@+id/btn7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_18sp"
+                        android:text="7"
+                        android:layout_weight="1"
+                        android:onClick="onButtonPinClick"
+                        />
+
+                    <Button
+                        android:id="@+id/btn8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_18sp"
+                        android:text="8"
+                        android:layout_weight="1"
+                        android:onClick="onButtonPinClick"
+                        />
+
+                    <Button
+                        android:id="@+id/btn9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_18sp"
+                        android:text="9"
+                        android:layout_weight="1"
+                        android:onClick="onButtonPinClick"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorBackground"
+                        android:textSize="@dimen/text_18sp"
+                        android:layout_weight="1"
+                        />
+
+                    <Button
+                        android:id="@+id/btn0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_18sp"
+                        android:text="0"
+                        android:layout_weight="1"
+                        android:onClick="onButtonPinClick"
+                        />
+
+                    <Button
+                        android:id="@+id/btnDelete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_18sp"
+                        android:text="@string/btn_delete"
+                        android:layout_weight="1"
+                        android:onClick="onButtonPinClick"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_weight="0.5"
+            android:layout_alignParentBottom="true"
             >
 
-            <TextView
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/btnChangeAccount"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/text_input_pin"
-                android:textSize="@dimen/text_18sp"
+                android:background="@android:color/transparent"
+                android:text="@string/text_button_change_account"
                 android:textColor="@color/colorWhite"
                 />
 
         </LinearLayout>
 
-        <View
-            style="@style/VerticalDivider"/>
-
-        <!-- OTP -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_weight="0.5"
-            >
-
-            <com.mukesh.OtpView
-                android:id="@+id/txtOtp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:height="@dimen/common_40dp"
-                android:itemBackground="@color/colorWhite"
-                android:text="@{displayPin}"
-                app:itemCount="6"
-                app:itemSpacing="@dimen/common_12dp"
-                app:itemWidth="@dimen/common_40dp"
-                app:lineColor="@color/colorBrown"
-                app:viewType="rectangle" />
-
-        </LinearLayout>
-
-        <View
-            style="@style/VerticalDivider"/>
-
-        <!-- KEYBOARD -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_margin="@dimen/common_20dp"
-            android:layout_weight="0.5"
-            >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                >
-
-                <Button
-                    android:id="@+id/btn1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_18sp"
-                    android:text="1"
-                    android:layout_weight="1"
-                    android:onClick="onButtonPinClick"
-                    />
-
-                <Button
-                    android:id="@+id/btn2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_18sp"
-                    android:text="2"
-                    android:layout_weight="1"
-                    android:onClick="onButtonPinClick"
-                    />
-
-                <Button
-                    android:id="@+id/btn3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_18sp"
-                    android:text="3"
-                    android:layout_weight="1"
-                    android:onClick="onButtonPinClick"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                >
-
-                <Button
-                    android:id="@+id/btn4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_18sp"
-                    android:text="4"
-                    android:layout_weight="1"
-                    android:onClick="onButtonPinClick"
-                    />
-
-                <Button
-                    android:id="@+id/btn5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_18sp"
-                    android:text="5"
-                    android:layout_weight="1"
-                    android:onClick="onButtonPinClick"
-                    />
-
-                <Button
-                    android:id="@+id/btn6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_18sp"
-                    android:text="6"
-                    android:layout_weight="1"
-                    android:onClick="onButtonPinClick"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                >
-
-                <Button
-                    android:id="@+id/btn7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_18sp"
-                    android:text="7"
-                    android:layout_weight="1"
-                    android:onClick="onButtonPinClick"
-                    />
-
-                <Button
-                    android:id="@+id/btn8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_18sp"
-                    android:text="8"
-                    android:layout_weight="1"
-                    android:onClick="onButtonPinClick"
-                    />
-
-                <Button
-                    android:id="@+id/btn9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_18sp"
-                    android:text="9"
-                    android:layout_weight="1"
-                    android:onClick="onButtonPinClick"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                >
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/colorBackground"
-                    android:textSize="@dimen/text_18sp"
-                    android:layout_weight="1"
-                    />
-
-                <Button
-                    android:id="@+id/btn0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_18sp"
-                    android:text="0"
-                    android:layout_weight="1"
-                    android:onClick="onButtonPinClick"
-                    />
-
-                <Button
-                    android:id="@+id/btnDelete"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_18sp"
-                    android:text="@string/btn_delete"
-                    android:layout_weight="1"
-                    android:onClick="onButtonPinClick"
-                    />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
+    </RelativeLayout>
 
 </layout>

@@ -21,6 +21,7 @@
     <!-- PIN -->
     <string name="text_input_pin">Please input your security pin</string>
     <string name="text_incorrect_pin">Incorrect pin</string>
+    <string name="text_button_change_account">Change Account</string>
 
     <!-- HOME -->
     <string name="text_home_main_menu_scan">Scan</string>
@@ -50,7 +51,7 @@
     <string name="text_button_save">Save</string>
 
     <!-- DATETIME -->
-    <string name="time_format">%d:%d</string>
+    <string name="time_format">%02d:%02d</string>
     <string name="date_format">%d-%02d-%02d</string>
-    <string name="date_view_format">%d %s %d</string>
+    <string name="date_view_format">%02d %s %d</string>
 </resources>

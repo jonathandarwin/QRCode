@@ -5,13 +5,15 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import com.example.qrcode.R;
 import com.example.qrcode.app.home.HomeActivity;
+import com.example.qrcode.app.register.RegisterActivity;
+import com.example.qrcode.app.started.StartedActivity;
 import com.example.qrcode.base.BaseActivity;
 import com.example.qrcode.databinding.PinActivityBinding;
 
-public class PinActivity extends BaseActivity<PinActivityBinding, PinViewModel> {
+public class PinActivity extends BaseActivity<PinActivityBinding, PinViewModel>
+            implements View.OnClickListener{
 
     public PinActivity(){
         super(PinViewModel.class, R.layout.pin_activity);
@@ -21,6 +23,19 @@ public class PinActivity extends BaseActivity<PinActivityBinding, PinViewModel> 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         resetPin();
+    }
+
+    @Override
+    protected void setListener() {
+        getBinding().btnChangeAccount.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.equals(getBinding().btnChangeAccount)){
+            deleteUserData();
+            gotoIntent(StartedActivity.class, null, true);
+        }
     }
 
     public void onButtonPinClick(View v){

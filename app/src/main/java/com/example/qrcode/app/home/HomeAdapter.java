@@ -70,18 +70,24 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         else if (viewHolder instanceof ItemViewHolder){
             Transaction transaction = (Transaction) listHistory.get(i);
             String message = "";
+            int color = 0;
             switch (transaction.getType()){
                 case Transaction.TRANSFER_IN:
                     message = String.format(context.getResources().getString(R.string.text_history_transfer_in), MoneyUtil.convertMoney(transaction.getAmount()), transaction.getPhone());
+                    color = context.getResources().getColor(R.color.colorTransferIn);
                     break;
                 case Transaction.TRANSFER_OUT:
                     message = String.format(context.getResources().getString(R.string.text_history_transfer_out), MoneyUtil.convertMoney(transaction.getAmount()), transaction.getPhone());
+                    color = context.getResources().getColor(R.color.colorTransferOut);
                     break;
                 case Transaction.TOP_UP:
                     message = String.format(context.getResources().getString(R.string.text_history_top_up), MoneyUtil.convertMoney(transaction.getAmount()));
+                    color = context.getResources().getColor(R.color.colorBackground);
                     break;
             }
             ((ItemViewHolder) viewHolder).binding.setText(message);
+            ((ItemViewHolder) viewHolder).binding.setTime(transaction.getTime());
+            ((ItemViewHolder) viewHolder).binding.setBackgroundColor(color);
         }
     }
 

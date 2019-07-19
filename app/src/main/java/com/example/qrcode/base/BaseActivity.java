@@ -104,4 +104,8 @@ public class BaseActivity<DataBinding extends ViewDataBinding, VM extends ViewMo
     protected boolean isLoggedIn(){
         return auth.isLoggedIn();
     }
+
+    protected void deleteUserData(){
+        auth.deleteUserData();
+    }
 }
